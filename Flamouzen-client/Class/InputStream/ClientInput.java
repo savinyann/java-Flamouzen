@@ -20,20 +20,23 @@ public class ClientInput extends InputReader
 	{
 		String message;
 
-		System.out.print("running");
 		try
 		{
 			while((message = this._in.readLine()) != null)
 			{
-				System.out.println("\n" + message);
-				this._out.println(message);
-				// this.getClient().prompt();
+				this._sendMessage(message);
+				this.getClient().prompt();
 			}
 		}
 		catch(IOException error)
 		{
 			System.out.println(error.getMessage());
 		}
+	}
+
+	private void _sendMessage(String message)
+	{
+		this._out.println(this.getClient().getPrompt() + message);
 	}
 
 	public void close()

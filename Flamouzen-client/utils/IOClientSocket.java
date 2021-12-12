@@ -49,6 +49,11 @@ public class IOClientSocket
 
     public void prompt()
     {
-        System.out.print(this._username + "> ");
+        System.out.print(this.getPrompt());
+    }
+
+    public String getPrompt()
+    {
+        return this._username + "> ";
     }
 }
